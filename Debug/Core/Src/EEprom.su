@@ -1,0 +1,4 @@
+../Core/Src/EEprom.c:41:19:EEPROM_Set_Write_Disable	16	static,ignoring_inline_asm
+../Core/Src/EEprom.c:62:19:EEPROM_Set_Write_Enable	16	static,ignoring_inline_asm
+../Core/Src/EEprom.c:85:19:EEPROM_Read_Data	32	static
+../Core/Src/EEprom.c:108:19:EEPROM_Write_Data	64	static,ignoring_inline_asm

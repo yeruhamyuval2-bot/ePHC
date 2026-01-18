@@ -1,0 +1,6 @@
+../Core/Src/communication.c:75:6:HAL_UART_TxCpltCallback	3
+../Core/Src/communication.c:95:6:ReceiveFromAcs	9
+../Core/Src/communication.c:173:6:ReceiveFromCmmController	7
+../Core/Src/communication.c:47:6:HAL_UART_RxCpltCallback	3
+../Core/Src/communication.c:229:6:SendData	2
+../Core/Src/communication.c:248:6:ResetCommunication	1

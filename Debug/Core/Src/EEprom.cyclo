@@ -1,0 +1,4 @@
+../Core/Src/EEprom.c:41:19:EEPROM_Set_Write_Disable	2
+../Core/Src/EEprom.c:62:19:EEPROM_Set_Write_Enable	2
+../Core/Src/EEprom.c:85:19:EEPROM_Read_Data	1
+../Core/Src/EEprom.c:108:19:EEPROM_Write_Data	9

@@ -1,0 +1,7 @@
+C:/Globus/ACS-Boards/STM boards/ePHC/build/Debug/CMakeFiles/ePHC.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/build/Debug/CMakeFiles/edit_cache.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/build/Debug/CMakeFiles/rebuild_cache.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/build/Debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/build/Debug/cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/build/Debug/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/build/Debug/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
