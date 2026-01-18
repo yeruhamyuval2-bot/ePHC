@@ -149,18 +149,25 @@ void ChangePowerVoltage(E_ENCODER_NUMBER encoder_, E_POWER encoderPower_)
 	return;
 }
 
-/****************************************************************************
-   DESCRIPTION   : Read DipSwitches status
-   Parameter in  : TBD
-   Returns       : NONE
-   Parameter out : NONE
-   Globals       :
-****************************************************************************/
+/**
+ * @brief Read and update the status of all 12 DIP switches
+ * @details Iterates through each DIP switch GPIO pin and reads its state.
+ *          The result is OR'd into u16DipSwitchesStatus with proper bit shifting.
+ *          NULL port checks prevent reading uninitialized GPIO pins.
+ * @return void
+ * @note Each switch occupies one bit (0-11) in u16DipSwitchesStatus register
+ * @note DMA transfer may occur between reads; ensure thread-safe access with mutex
+ */
 void DipSwitchStatus()
 {
 	for(int i = 0; i < 12; i++)
 	{
-		u8DipSwitchesStatus |= HAL_GPIO_ReadPin(sDipSwitchesPin[i].Port, sDipSwitchesPin[i].PinNumber) << i;
+		/* FIX: NULL check prevents GPIO driver errors if pin is uninitialized */
+		if (sDipSwitchesPin[i].Port != NULL) {
+			/* FIX: Cast to uint16_t required to safely shift GPIO bit to position i (max 11)
+			   Without cast, shifting uint8_t by 8+ bits produces undefined C behavior */
+			u16DipSwitchesStatus |= (uint16_t)HAL_GPIO_ReadPin(sDipSwitchesPin[i].Port, sDipSwitchesPin[i].PinNumber) << i;
+		}
 	}
 	return;
 }

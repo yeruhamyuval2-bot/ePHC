@@ -79,7 +79,8 @@ enum RENISHAW_RC_STATES
 extt sPinConfig sPowerPin[3][3];
 extt sPinConfig sDipSwitchesPin[12];
 extt sPinConfig sLedError[7];
-extt uint8_t 	u8DipSwitchesStatus;
+/** @brief DIP switch status register - holds state of 12 DIP switches (bits 0-11). Changed from uint8_t to uint16_t to prevent bit shift overflow */
+extt uint16_t 	u16DipSwitchesStatus;
 extt uint8_t 	u8Tp20ErrorDetect;
 
 // Globals variables

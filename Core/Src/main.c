@@ -56,43 +56,52 @@ DMA_HandleTypeDef hdma_usart6_tx;
 
 /* Definitions for TaskUART1 */
 osThreadId_t TaskUART1Handle;
+/**
+ * @brief UART1 Communication Task - Handles incoming data from CMM Controller
+ * @details Stack increased to 2048 bytes (512*4) to accommodate nested function calls
+ *          and local variable storage without stack overflow risk.
+ *          Memory usage: 5 tasks × 2KB = 10KB (16% of 64KB available RAM)
+ */
 const osThreadAttr_t TaskUART1_attributes = {
   .name = "TaskUART1",
-  .stack_size = 128 * 4,
+  .stack_size = 512 * 4,  /* FIXED: Increased from 128*4 (512B) to 512*4 (2048B) to prevent stack overflow */
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for TaskUART6 */
 osThreadId_t TaskUART6Handle;
 const osThreadAttr_t TaskUART6_attributes = {
   .name = "TaskUART6",
-  .stack_size = 128 * 4,
+  .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for TaskReadDs */
 osThreadId_t TaskReadDsHandle;
 const osThreadAttr_t TaskReadDs_attributes = {
   .name = "TaskReadDs",
-  .stack_size = 128 * 4,
+  .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityAboveNormal,
 };
 /* Definitions for TaskSYNC */
 osThreadId_t TaskSYNCHandle;
 const osThreadAttr_t TaskSYNC_attributes = {
   .name = "TaskSYNC",
-  .stack_size = 128 * 4,
+  .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityRealtime7,
 };
 /* Definitions for TaskHALT */
 osThreadId_t TaskHALTHandle;
 const osThreadAttr_t TaskHALT_attributes = {
   .name = "TaskHALT",
-  .stack_size = 128 * 4,
+  .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityRealtime7,
 };
-/* Definitions for SIgnalMutex */
-osMutexId_t SIgnalMutexHandle;
-const osMutexAttr_t SIgnalMutex_attributes = {
-  .name = "SIgnalMutex"
+/**
+ * @brief Signal Mutex - Protects shared resources between HALT and SYNC tasks
+ * @details Prevents race conditions when accessing u8IsFirstHaltArrived and u8IsInTp20Measurement
+ */
+osMutexId_t SignalMutexHandle;
+const osMutexAttr_t SignalMutex_attributes = {
+  .name = "SignalMutex"
 };
 /* Definitions for Uart6TxSem */
 osSemaphoreId_t Uart6TxSemHandle;
@@ -184,8 +193,8 @@ int main(void)
   /* Init scheduler */
   osKernelInitialize();
   /* Create the mutex(es) */
-  /* creation of SIgnalMutex */
-  SIgnalMutexHandle = osMutexNew(&SIgnalMutex_attributes);
+  /* creation of SignalMutex */
+  SignalMutexHandle = osMutexNew(&SignalMutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -213,18 +222,28 @@ int main(void)
   /* Create the thread(s) */
   /* creation of TaskUART1 */
   TaskUART1Handle = osThreadNew(StartTaskUART1, NULL, &TaskUART1_attributes);
+  /* FIX: Verify thread creation - if NULL allocation fails, RTOS cannot operate */
+  if (TaskUART1Handle == NULL) Error_Handler();
 
   /* creation of TaskUART6 */
   TaskUART6Handle = osThreadNew(StartTaskUART6, NULL, &TaskUART6_attributes);
+  /* FIX: Verify thread creation - this task handles critical ACS communication */
+  if (TaskUART6Handle == NULL) Error_Handler();
 
   /* creation of TaskReadDs */
   TaskReadDsHandle = osThreadNew(StartTaskReadDs, NULL, &TaskReadDs_attributes);
+  /* FIX: Verify thread creation - prevents system crash if memory allocation fails */
+  if (TaskReadDsHandle == NULL) Error_Handler();
 
   /* creation of TaskSYNC */
   TaskSYNCHandle = osThreadNew(StartTaskSYNC, NULL, &TaskSYNC_attributes);
+  /* FIX: Verify thread creation - synchronization task is real-time critical */
+  if (TaskSYNCHandle == NULL) Error_Handler();
 
   /* creation of TaskHALT */
   TaskHALTHandle = osThreadNew(StartTaskHALT, NULL, &TaskHALT_attributes);
+  /* FIX: Verify thread creation - handles critical hardware shutdown signals */
+  if (TaskHALTHandle == NULL) Error_Handler();
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -765,7 +784,7 @@ void StartTaskUART1(void *argument)
 
 			if (osSemaphoreAcquire(Uart1TxSemHandle, osWaitForever) == osOK)
 			{
-				if(SendData(&huart1, au8TxBufCmm.uaiDataArray, sizeToCopy))
+				if(SendData(&huart1, au8TxBufCmm.uaiDataArray, sizeToCopy) == HAL_OK)
 				{
 					HAL_UART_Receive_IT(&huart6, (uint8_t *)&au8RxBufAcs.uaiDataArray[0], 1);
 					HAL_UART_Receive_IT(&huart1, (uint8_t *)&au8RxBufCmm.uaiDataArray[0], 1);
@@ -804,13 +823,13 @@ void StartTaskUART6(void *argument)
 	{
 		flag = osThreadFlagsWait(EVENT_DATA_READY | EVENT_ERROR, osFlagsWaitAny, osWaitForever);
 
-		if(flag & EVENT_ERROR)
+		if(flag == EVENT_ERROR)
 		{
 			ResetCommunication();
 			EmptyUartBuffers();
 		}
 
-		else if(flag & EVENT_DATA_READY)
+		else if(flag == EVENT_DATA_READY)
 		{
 			HAL_TIM_Base_Stop_IT(&htim10);
 
@@ -821,7 +840,7 @@ void StartTaskUART6(void *argument)
 
 			if (osSemaphoreAcquire(Uart6TxSemHandle, osWaitForever) == osOK)
 			{
-				if(SendData(&huart6, au8TxBufAcs.uaiDataArray, sizeToCopy))
+				if(SendData(&huart6, au8TxBufAcs.uaiDataArray, sizeToCopy) == HAL_OK)
 				{
 					HAL_UART_Receive_IT(&huart6, (uint8_t *)&au8RxBufAcs.uaiDataArray[0], 1);
 					HAL_UART_Receive_IT(&huart1, (uint8_t *)&au8RxBufCmm.uaiDataArray[0], 1);
@@ -873,7 +892,7 @@ void StartTaskSYNC(void *argument)
 	for(;;)
 	{
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		if (osMutexAcquire(SIgnalMutexHandle, osWaitForever) == osOK)
+		/** @brief Process SYNC_CPU interrupt - initiates measurement synchronization */\n\t\tif (osMutexAcquire(SignalMutexHandle, osWaitForever) == osOK)
 		{
 			// Interrupt SYNK_CPU
 			if (HAL_GPIO_ReadPin(MARK1_SYNC_GPIO_Port, MARK1_SYNC_Pin) == IN_SNYC_ON)//falling
@@ -890,7 +909,7 @@ void StartTaskSYNC(void *argument)
 			{
 				ResetSynkAndHalt();
 			}
-			osMutexRelease(SIgnalMutexHandle);
+			osMutexRelease(SignalMutexHandle);
 		}
 	}
   /* USER CODE END StartTaskSYNC */
@@ -911,16 +930,18 @@ void StartTaskHALT(void *argument)
 	for(;;)
 	{
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		// Interrupt HALT_CPU
-		if (osMutexAcquire(SIgnalMutexHandle, osWaitForever) == osOK)
+		/** @brief Process HALT_CPU interrupt - triggers measurement shutdown sequence */
+		/* FIX: Mutex MUST be released ONLY if successfully acquired
+		   Moving release inside if-block prevents dangling release if acquire fails */
+		if (osMutexAcquire(SignalMutexHandle, osWaitForever) == osOK)
 		{
 			if ((!u8IsFirstHaltArrived) && (u8IsInTp20Measurement) && (u161MilliSecondCounter >= SNYK_WAIT_TIME) && (u161MilliSecondCounter <= HALT_TIME_OFF))
 			{
 				u8IsFirstHaltArrived = TRUE;
 				TriggerToAcsControl(GPIO_PIN_SET);
 			}
+			osMutexRelease(SignalMutexHandle);
 		}
-		osMutexRelease(SIgnalMutexHandle);
 	}
   /* USER CODE END StartTaskHALT */
 }

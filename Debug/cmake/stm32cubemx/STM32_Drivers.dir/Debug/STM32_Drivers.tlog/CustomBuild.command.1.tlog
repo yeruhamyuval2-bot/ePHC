@@ -1,0 +1,10 @@
+^C:\GLOBUS\ACS-BOARDS\STM BOARDS\EPHC\CMAKE\STM32CUBEMX\CMAKELISTS.TXT
+setlocal
+C:\ST\STM32CubeCLT_1.20.0\CMake\bin\cmake.exe "-SC:/Globus/ACS-Boards/STM boards/ePHC" "-BC:/Globus/ACS-Boards/STM boards/ePHC/Debug" --check-stamp-file "C:/Globus/ACS-Boards/STM boards/ePHC/Debug/cmake/stm32cubemx/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

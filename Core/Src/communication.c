@@ -219,18 +219,23 @@ void ReceiveFromCmmController()
 		HAL_UART_Receive_IT(&huart1, (uint8_t *)&au8RxBufCmm.uaiDataArray[++u8ReadIdxCmm], 1);
 }
 
-/****************************************************************************
-   DESCRIPTION   : Sending data packets over UART
-   Parameter in  : DATA, size, UART port
-   Returns       : CHECK_FOR_NEW_PACKET - in case the transmission successfully done, else RESET_UART
-   Parameter out : NONE
-   Globals       :
-****************************************************************************/
-bool SendData(UART_HandleTypeDef* uart_, uint8_t* txBuffer_, uint8_t size_)
+/**
+ * @brief Transmit data over UART using DMA
+ * @details This function checks if the UART peripheral is in a ready state before
+ *          initiating a DMA transfer. If the UART is busy, it returns HAL_BUSY status.
+ * @param huart    Pointer to UART handle structure
+ * @param pTxData  Pointer to the transmit data buffer
+ * @param u8Size   Number of bytes to transmit
+ * @return HAL_StatusTypeDef
+ *   - HAL_OK:    DMA transmission started successfully
+ *   - HAL_BUSY:  UART peripheral is currently busy with another operation
+ * @note Function is interrupt-driven; use semaphore or callback to detect completion
+ */
+HAL_StatusTypeDef SendData(UART_HandleTypeDef* huart, uint8_t* pTxData, uint8_t u8Size)
 {
-	if (uart_->gState == HAL_UART_STATE_READY)
+	if (huart->gState == HAL_UART_STATE_READY)
 	{
-		return HAL_UART_Transmit_DMA(uart_, txBuffer_, size_) == HAL_OK;
+		return HAL_UART_Transmit_DMA(huart, pTxData, u8Size);
 	}
 	else
 	{

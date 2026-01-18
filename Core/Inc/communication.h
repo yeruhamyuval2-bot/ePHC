@@ -34,6 +34,16 @@
 // ===================================== FUNCTION DEFINITIONS ======================================
 void ReceiveFromCmmController();
 void ReceiveFromAcs();
-bool SendData(UART_HandleTypeDef* uart_, uint8_t* txBuffer_, uint8_t size_);
+/**
+ * @brief Transmit data over UART using DMA
+ * @param huart    Pointer to UART handle
+ * @param pTxData  Pointer to transmit data buffer
+ * @param u8Size   Number of bytes to transmit
+ * @return HAL_StatusTypeDef
+ *   - HAL_OK:    Transmission started successfully
+ *   - HAL_BUSY:  UART peripheral is currently busy
+ * @note Function checks UART ready state before initiating DMA transfer
+ */
+HAL_StatusTypeDef SendData(UART_HandleTypeDef* huart, uint8_t* pTxData, uint8_t u8Size);
 void ResetCommunication();
 #endif /* COMMUNICATION_H_ */

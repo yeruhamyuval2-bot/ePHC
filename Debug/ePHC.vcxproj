@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3E67F97C-6321-3472-9406-2CF9D4ADB06D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ePHC</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ePHC.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ePHC</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ePHC.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ePHC</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ePHC.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ePHC</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ePHC.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ePHC</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;USE_HAL_DRIVER;STM32F401xC;DEBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;USE_HAL_DRIVER;STM32F401xC;DEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Globus/ACS-Boards/STM boards/ePHC/Debug/Debug/ePHC.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Globus/ACS-Boards/STM boards/ePHC/Debug/Debug/ePHC.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_HAL_DRIVER;STM32F401xC;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_HAL_DRIVER;STM32F401xC;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Globus/ACS-Boards/STM boards/ePHC/Debug/Release/ePHC.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Globus/ACS-Boards/STM boards/ePHC/Debug/Release/ePHC.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_HAL_DRIVER;STM32F401xC;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_HAL_DRIVER;STM32F401xC;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Globus/ACS-Boards/STM boards/ePHC/Debug/MinSizeRel/ePHC.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Globus/ACS-Boards/STM boards/ePHC/Debug/MinSizeRel/ePHC.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_HAL_DRIVER;STM32F401xC;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_HAL_DRIVER;STM32F401xC;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Core\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;C:\Globus\ACS-Boards\STM boards\ePHC\cmake\stm32cubemx\..\..\Drivers\CMSIS\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Globus/ACS-Boards/STM boards/ePHC/Debug/RelWithDebInfo/ePHC.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Globus/ACS-Boards/STM boards/ePHC/Debug/RelWithDebInfo/ePHC.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Globus\ACS-Boards\STM boards\ePHC\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Globus/ACS-Boards/STM boards/ePHC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\ST\STM32CubeCLT_1.20.0\CMake\bin\cmake.exe "-SC:/Globus/ACS-Boards/STM boards/ePHC" "-BC:/Globus/ACS-Boards/STM boards/ePHC/Debug" --check-stamp-file "C:/Globus/ACS-Boards/STM boards/ePHC/Debug/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeASMCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeCCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeCXXCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeRCCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeASMCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeASMInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCCompilerABI.c;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXCompilerABI.cpp;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCompilerIdDetection.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineASMCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCXXCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompileFeatures.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerABI.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerId.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineRCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeFindBinUtils.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseImplicitLinkInfo.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseLibraryArchitecture.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeRCCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystem.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestASMCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCXXCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCompilerCommon.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestRCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-ASM.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\TI-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CompilerId\VS-10.vcxproj.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Internal\FeatureTesting.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-Determine-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Globus/ACS-Boards/STM boards/ePHC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\ST\STM32CubeCLT_1.20.0\CMake\bin\cmake.exe "-SC:/Globus/ACS-Boards/STM boards/ePHC" "-BC:/Globus/ACS-Boards/STM boards/ePHC/Debug" --check-stamp-file "C:/Globus/ACS-Boards/STM boards/ePHC/Debug/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeASMCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeCCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeCXXCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeRCCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeASMCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeASMInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCCompilerABI.c;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXCompilerABI.cpp;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCompilerIdDetection.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineASMCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCXXCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompileFeatures.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerABI.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerId.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineRCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeFindBinUtils.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseImplicitLinkInfo.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseLibraryArchitecture.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeRCCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystem.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestASMCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCXXCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCompilerCommon.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestRCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-ASM.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\TI-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CompilerId\VS-10.vcxproj.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Internal\FeatureTesting.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-Determine-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Globus/ACS-Boards/STM boards/ePHC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\ST\STM32CubeCLT_1.20.0\CMake\bin\cmake.exe "-SC:/Globus/ACS-Boards/STM boards/ePHC" "-BC:/Globus/ACS-Boards/STM boards/ePHC/Debug" --check-stamp-file "C:/Globus/ACS-Boards/STM boards/ePHC/Debug/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeASMCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeCCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeCXXCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeRCCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeASMCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeASMInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCCompilerABI.c;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXCompilerABI.cpp;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCompilerIdDetection.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineASMCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCXXCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompileFeatures.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerABI.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerId.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineRCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeFindBinUtils.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseImplicitLinkInfo.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseLibraryArchitecture.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeRCCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystem.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestASMCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCXXCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCompilerCommon.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestRCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-ASM.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\TI-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CompilerId\VS-10.vcxproj.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Internal\FeatureTesting.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-Determine-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Globus/ACS-Boards/STM boards/ePHC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\ST\STM32CubeCLT_1.20.0\CMake\bin\cmake.exe "-SC:/Globus/ACS-Boards/STM boards/ePHC" "-BC:/Globus/ACS-Boards/STM boards/ePHC/Debug" --check-stamp-file "C:/Globus/ACS-Boards/STM boards/ePHC/Debug/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeASMCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeCCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeCXXCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeRCCompiler.cmake;C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\3.28.1\CMakeSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeASMCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeASMInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCCompilerABI.c;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXCompilerABI.cpp;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeCompilerIdDetection.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineASMCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCXXCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompileFeatures.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerABI.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerId.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineRCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeDetermineSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeFindBinUtils.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseImplicitLinkInfo.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeParseLibraryArchitecture.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeRCCompiler.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystem.cmake.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestASMCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCXXCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestCompilerCommon.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CMakeTestRCCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-ASM.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\TI-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\CompilerId\VS-10.vcxproj.in;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Internal\FeatureTesting.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-Determine-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;C:\ST\STM32CubeCLT_1.20.0\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Globus\ACS-Boards\STM boards\ePHC\Debug\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\main.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\freertos.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\stm32f4xx_it.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\stm32f4xx_hal_msp.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\stm32f4xx_hal_timebase_tim.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\sysmem.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\syscalls.c" />
+    <None Include="C:\Globus\ACS-Boards\STM boards\ePHC\startup_stm32f401xc.s" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\communication.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\EEprom.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\Globals.c" />
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\Utilies.c" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\system_stm32f4xx.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_tim.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_tim_ex.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_rcc.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_rcc_ex.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_flash.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_flash_ex.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_flash_ramfunc.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_gpio.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_dma_ex.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_dma.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_pwr.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_pwr_ex.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_cortex.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_exti.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_spi.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_uart.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\croutine.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\event_groups.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\list.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\queue.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\stream_buffer.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\tasks.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\timers.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\cmsis_os2.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\heap_4.obj" />
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\port.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\ZERO_CHECK.vcxproj">
+      <Project>{0FDD6CC3-4010-3387-849A-8AB42A22DAD2}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.vcxproj">
+      <Project>{0C922264-98A0-3A34-BFD4-6813B0C6730E}</Project>
+      <Name>FreeRTOS</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.vcxproj">
+      <Project>{76E88F62-4FED-3088-B803-EDAA5A7E00AA}</Project>
+      <Name>STM32_Drivers</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

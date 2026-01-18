@@ -2,7 +2,37 @@
     "configurations": [
         {
             "name": "STM32",
-            "compileCommands": "${workspaceFolder}/build/Debug/compile_commands.json"
+            "compileCommands": "${workspaceFolder}/build/Debug/compile_commands.json",
+            "includePath": [
+                "${workspaceFolder}/Core/Inc",
+                "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                "${workspaceFolder}/Drivers/CMSIS/Include",
+                "${workspaceFolder}/Drivers/STM32F4xx_HAL_Driver/Inc",
+                "${workspaceFolder}/Middlewares/Third_Party/FreeRTOS/Source/include",
+                "${workspaceFolder}/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
+                "${workspaceFolder}/build/Debug",
+                "${workspaceFolder}"
+            ],
+            "defines": [
+                "STM32F401xC",
+                "USE_HAL_DRIVER",
+                "DEBUG",
+                "USE_FREERTOS"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm",
+            "compilerPath": "arm-none-eabi-gcc",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/Core/Inc",
+                    "${workspaceFolder}/Core/Src",
+                    "${workspaceFolder}/Drivers",
+                    "${workspaceFolder}/Middlewares"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
         }
-    ]
+    ],
+    "version": 4
 }

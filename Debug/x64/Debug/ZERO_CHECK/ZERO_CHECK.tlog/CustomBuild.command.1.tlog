@@ -1,0 +1,10 @@
+^C:\GLOBUS\ACS-BOARDS\STM BOARDS\EPHC\DEBUG\CMAKEFILES\CBC78595D82FA70D4C1E4614D0E9A69D\GENERATE.STAMP.RULE
+setlocal
+C:\ST\STM32CubeCLT_1.20.0\CMake\bin\cmake.exe "-SC:/Globus/ACS-Boards/STM boards/ePHC" "-BC:/Globus/ACS-Boards/STM boards/ePHC/Debug" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Globus/ACS-Boards/STM boards/ePHC/Debug/ePHC.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

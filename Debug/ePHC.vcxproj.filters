@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\freertos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\stm32f4xx_it.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\stm32f4xx_hal_msp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\stm32f4xx_hal_timebase_tim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\sysmem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\syscalls.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\communication.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\EEprom.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\Globals.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Globus\ACS-Boards\STM boards\ePHC\Core\Src\Utilies.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Globus\ACS-Boards\STM boards\ePHC\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Globus\ACS-Boards\STM boards\ePHC\startup_stm32f401xc.s" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\system_stm32f4xx.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_tim.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_tim_ex.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_rcc.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_rcc_ex.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_flash.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_flash_ex.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_flash_ramfunc.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_gpio.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_dma_ex.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_dma.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_pwr.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_pwr_ex.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_cortex.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_exti.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_spi.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\STM32_Drivers.dir\$(Configuration)\stm32f4xx_hal_uart.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\croutine.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\event_groups.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\list.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\queue.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\stream_buffer.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\tasks.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\timers.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\cmsis_os2.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\heap_4.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="C:\Globus\ACS-Boards\STM boards\ePHC\Debug\cmake\stm32cubemx\FreeRTOS.dir\$(Configuration)\port.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Object Libraries">
+      <UniqueIdentifier>{7BD131B5-F6EB-3682-9E87-2CFEC24C16D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2E9537F3-1A23-3016-A47F-209F9A2293CA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

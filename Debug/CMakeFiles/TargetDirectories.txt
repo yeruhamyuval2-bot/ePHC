@@ -1,0 +1,5 @@
+C:/Globus/ACS-Boards/STM boards/ePHC/Debug/CMakeFiles/ePHC.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/Debug/CMakeFiles/ALL_BUILD.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/Debug/CMakeFiles/ZERO_CHECK.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/Debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
+C:/Globus/ACS-Boards/STM boards/ePHC/Debug/cmake/stm32cubemx/CMakeFiles/FreeRTOS.dir
