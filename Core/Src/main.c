@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -63,37 +63,37 @@ osThreadId_t TaskUART1Handle;
  *          Memory usage: 5 tasks × 2KB = 10KB (16% of 64KB available RAM)
  */
 const osThreadAttr_t TaskUART1_attributes = {
-  .name = "TaskUART1",
-  .stack_size = 512 * 4,  /* FIXED: Increased from 128*4 (512B) to 512*4 (2048B) to prevent stack overflow */
-  .priority = (osPriority_t) osPriorityLow,
+    .name = "TaskUART1",
+    .stack_size = 512 * 4, /* FIXED: Increased from 128*4 (512B) to 512*4 (2048B) to prevent stack overflow */
+    .priority = (osPriority_t)osPriorityLow,
 };
 /* Definitions for TaskUART6 */
 osThreadId_t TaskUART6Handle;
 const osThreadAttr_t TaskUART6_attributes = {
-  .name = "TaskUART6",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+    .name = "TaskUART6",
+    .stack_size = 512 * 4,
+    .priority = (osPriority_t)osPriorityLow,
 };
 /* Definitions for TaskReadDs */
 osThreadId_t TaskReadDsHandle;
 const osThreadAttr_t TaskReadDs_attributes = {
-  .name = "TaskReadDs",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityAboveNormal,
+    .name = "TaskReadDs",
+    .stack_size = 512 * 4,
+    .priority = (osPriority_t)osPriorityAboveNormal,
 };
 /* Definitions for TaskSYNC */
 osThreadId_t TaskSYNCHandle;
 const osThreadAttr_t TaskSYNC_attributes = {
-  .name = "TaskSYNC",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityRealtime7,
+    .name = "TaskSYNC",
+    .stack_size = 512 * 4,
+    .priority = (osPriority_t)osPriorityRealtime7,
 };
 /* Definitions for TaskHALT */
 osThreadId_t TaskHALTHandle;
 const osThreadAttr_t TaskHALT_attributes = {
-  .name = "TaskHALT",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityRealtime7,
+    .name = "TaskHALT",
+    .stack_size = 512 * 4,
+    .priority = (osPriority_t)osPriorityRealtime7,
 };
 /**
  * @brief Signal Mutex - Protects shared resources between HALT and SYNC tasks
@@ -101,18 +101,15 @@ const osThreadAttr_t TaskHALT_attributes = {
  */
 osMutexId_t SignalMutexHandle;
 const osMutexAttr_t SignalMutex_attributes = {
-  .name = "SignalMutex"
-};
+    .name = "SignalMutex"};
 /* Definitions for Uart6TxSem */
 osSemaphoreId_t Uart6TxSemHandle;
 const osSemaphoreAttr_t Uart6TxSem_attributes = {
-  .name = "Uart6TxSem"
-};
+    .name = "Uart6TxSem"};
 /* Definitions for Uart1TxSem */
 osSemaphoreId_t Uart1TxSemHandle;
 const osSemaphoreAttr_t Uart1TxSem_attributes = {
-  .name = "Uart1TxSem"
-};
+    .name = "Uart1TxSem"};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -145,9 +142,9 @@ void StartTaskHALT(void *argument);
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
-  * @retval int
-  */
+ * @brief  The application entry point.
+ * @retval int
+ */
 int main(void)
 {
 
@@ -223,27 +220,32 @@ int main(void)
   /* creation of TaskUART1 */
   TaskUART1Handle = osThreadNew(StartTaskUART1, NULL, &TaskUART1_attributes);
   /* FIX: Verify thread creation - if NULL allocation fails, RTOS cannot operate */
-  if (TaskUART1Handle == NULL) Error_Handler();
+  if (TaskUART1Handle == NULL)
+    Error_Handler();
 
   /* creation of TaskUART6 */
   TaskUART6Handle = osThreadNew(StartTaskUART6, NULL, &TaskUART6_attributes);
   /* FIX: Verify thread creation - this task handles critical ACS communication */
-  if (TaskUART6Handle == NULL) Error_Handler();
+  if (TaskUART6Handle == NULL)
+    Error_Handler();
 
   /* creation of TaskReadDs */
   TaskReadDsHandle = osThreadNew(StartTaskReadDs, NULL, &TaskReadDs_attributes);
   /* FIX: Verify thread creation - prevents system crash if memory allocation fails */
-  if (TaskReadDsHandle == NULL) Error_Handler();
+  if (TaskReadDsHandle == NULL)
+    Error_Handler();
 
   /* creation of TaskSYNC */
   TaskSYNCHandle = osThreadNew(StartTaskSYNC, NULL, &TaskSYNC_attributes);
   /* FIX: Verify thread creation - synchronization task is real-time critical */
-  if (TaskSYNCHandle == NULL) Error_Handler();
+  if (TaskSYNCHandle == NULL)
+    Error_Handler();
 
   /* creation of TaskHALT */
   TaskHALTHandle = osThreadNew(StartTaskHALT, NULL, &TaskHALT_attributes);
   /* FIX: Verify thread creation - handles critical hardware shutdown signals */
-  if (TaskHALTHandle == NULL) Error_Handler();
+  if (TaskHALTHandle == NULL)
+    Error_Handler();
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -261,7 +263,6 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-
   while (1)
   {
     /* USER CODE END WHILE */
@@ -272,22 +273,22 @@ int main(void)
 }
 
 /**
-  * @brief System Clock Configuration
-  * @retval None
-  */
+ * @brief System Clock Configuration
+ * @retval None
+ */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Configure the main internal regulator output voltage
-  */
+   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
 
   /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
+   * in the RCC_OscInitTypeDef structure.
+   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -302,9 +303,8 @@ void SystemClock_Config(void)
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+   */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
@@ -317,10 +317,10 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief SPI2 Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief SPI2 Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_SPI2_Init(void)
 {
 
@@ -351,14 +351,13 @@ static void MX_SPI2_Init(void)
   /* USER CODE BEGIN SPI2_Init 2 */
 
   /* USER CODE END SPI2_Init 2 */
-
 }
 
 /**
-  * @brief TIM5 Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief TIM5 Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_TIM5_Init(void)
 {
 
@@ -396,14 +395,13 @@ static void MX_TIM5_Init(void)
   /* USER CODE BEGIN TIM5_Init 2 */
 
   /* USER CODE END TIM5_Init 2 */
-
 }
 
 /**
-  * @brief TIM9 Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief TIM9 Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_TIM9_Init(void)
 {
 
@@ -417,9 +415,9 @@ static void MX_TIM9_Init(void)
 
   /* USER CODE END TIM9_Init 1 */
   htim9.Instance = TIM9;
-  htim9.Init.Prescaler = 84-1;
+  htim9.Init.Prescaler = 84 - 1;
   htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim9.Init.Period = 1000-1;
+  htim9.Init.Period = 1000 - 1;
   htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim9.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim9) != HAL_OK)
@@ -434,14 +432,13 @@ static void MX_TIM9_Init(void)
   /* USER CODE BEGIN TIM9_Init 2 */
 
   /* USER CODE END TIM9_Init 2 */
-
 }
 
 /**
-  * @brief TIM10 Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief TIM10 Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_TIM10_Init(void)
 {
 
@@ -465,14 +462,13 @@ static void MX_TIM10_Init(void)
   /* USER CODE BEGIN TIM10_Init 2 */
 
   /* USER CODE END TIM10_Init 2 */
-
 }
 
 /**
-  * @brief TIM11 Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief TIM11 Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_TIM11_Init(void)
 {
 
@@ -496,14 +492,13 @@ static void MX_TIM11_Init(void)
   /* USER CODE BEGIN TIM11_Init 2 */
 
   /* USER CODE END TIM11_Init 2 */
-
 }
 
 /**
-  * @brief USART1 Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief USART1 Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_USART1_UART_Init(void)
 {
 
@@ -529,14 +524,13 @@ static void MX_USART1_UART_Init(void)
   /* USER CODE BEGIN USART1_Init 2 */
 
   /* USER CODE END USART1_Init 2 */
-
 }
 
 /**
-  * @brief USART2 Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief USART2 Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_USART2_UART_Init(void)
 {
 
@@ -562,14 +556,13 @@ static void MX_USART2_UART_Init(void)
   /* USER CODE BEGIN USART2_Init 2 */
 
   /* USER CODE END USART2_Init 2 */
-
 }
 
 /**
-  * @brief USART6 Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief USART6 Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_USART6_UART_Init(void)
 {
 
@@ -595,12 +588,11 @@ static void MX_USART6_UART_Init(void)
   /* USER CODE BEGIN USART6_Init 2 */
 
   /* USER CODE END USART6_Init 2 */
-
 }
 
 /**
-  * Enable DMA controller clock
-  */
+ * Enable DMA controller clock
+ */
 static void MX_DMA_Init(void)
 {
 
@@ -614,14 +606,13 @@ static void MX_DMA_Init(void)
   /* DMA2_Stream7_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
-
 }
 
 /**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
+ * @brief GPIO Initialization Function
+ * @param None
+ * @retval None
+ */
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -637,14 +628,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, ENCB_CV1_Pin|MOTO_EN_24V_Pin|HUB_CV3_Pin|HUB_CV2_Pin
-                          |HUB_CV1_Pin|ENCB_CV3_Pin|ENCB_CV2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, ENCB_CV1_Pin | MOTO_EN_24V_Pin | HUB_CV3_Pin | HUB_CV2_Pin | HUB_CV1_Pin | ENCB_CV3_Pin | ENCB_CV2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, ENCA_CV1_Pin|ENCA_CV3_Pin|ENCA_CV2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, ENCA_CV1_Pin | ENCA_CV3_Pin | ENCA_CV2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, CS_EE2_Pin|Buzzer_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, CS_EE2_Pin | Buzzer_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(INT_ON_CPU_GPIO_Port, INT_ON_CPU_Pin, GPIO_PIN_RESET);
@@ -653,21 +643,18 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(AIR_SENSE_CNT_GPIO_Port, AIR_SENSE_CNT_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, ST_HUB_RESET_Pin|ST_HUB_BOOT_Pin|FRONT_POWER_LED_Pin|FRONT_STOP_LED_Pin
-                          |FRONT_READY_LED_Pin|FRONT_ACTIVE_LED_Pin|FRONT_ERROR1_LED_Pin|FRONT_ERROR2_LED_Pin
-                          |FRONT_ERROR3_LED_Pin|MARK0_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOD, ST_HUB_RESET_Pin | ST_HUB_BOOT_Pin | FRONT_POWER_LED_Pin | FRONT_STOP_LED_Pin | FRONT_READY_LED_Pin | FRONT_ACTIVE_LED_Pin | FRONT_ERROR1_LED_Pin | FRONT_ERROR2_LED_Pin | FRONT_ERROR3_LED_Pin | MARK0_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : ENCB_CV1_Pin MOTO_EN_24V_Pin AIR_SENSE_CNT_Pin HUB_CV3_Pin
                            HUB_CV2_Pin HUB_CV1_Pin ENCB_CV3_Pin ENCB_CV2_Pin */
-  GPIO_InitStruct.Pin = ENCB_CV1_Pin|MOTO_EN_24V_Pin|AIR_SENSE_CNT_Pin|HUB_CV3_Pin
-                          |HUB_CV2_Pin|HUB_CV1_Pin|ENCB_CV3_Pin|ENCB_CV2_Pin;
+  GPIO_InitStruct.Pin = ENCB_CV1_Pin | MOTO_EN_24V_Pin | AIR_SENSE_CNT_Pin | HUB_CV3_Pin | HUB_CV2_Pin | HUB_CV1_Pin | ENCB_CV3_Pin | ENCB_CV2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ENCA_CV1_Pin ENCA_CV3_Pin ENCA_CV2_Pin */
-  GPIO_InitStruct.Pin = ENCA_CV1_Pin|ENCA_CV3_Pin|ENCA_CV2_Pin;
+  GPIO_InitStruct.Pin = ENCA_CV1_Pin | ENCA_CV3_Pin | ENCA_CV2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -675,14 +662,13 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : DIP_SW3_Pin DIP_SW2_Pin DIP_SW1_Pin DIP_SW6_Pin
                            DIP_SW4_Pin */
-  GPIO_InitStruct.Pin = DIP_SW3_Pin|DIP_SW2_Pin|DIP_SW1_Pin|DIP_SW6_Pin
-                          |DIP_SW4_Pin;
+  GPIO_InitStruct.Pin = DIP_SW3_Pin | DIP_SW2_Pin | DIP_SW1_Pin | DIP_SW6_Pin | DIP_SW4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : CS_EE2_Pin Buzzer_Pin */
-  GPIO_InitStruct.Pin = CS_EE2_Pin|Buzzer_Pin;
+  GPIO_InitStruct.Pin = CS_EE2_Pin | Buzzer_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -702,15 +688,14 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(INT_ON_CPU_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : COLLISION_CPU_Pin LEDOFF_CPU_Pin PICS_ERROR_CPU_Pin */
-  GPIO_InitStruct.Pin = COLLISION_CPU_Pin|LEDOFF_CPU_Pin|PICS_ERROR_CPU_Pin;
+  GPIO_InitStruct.Pin = COLLISION_CPU_Pin | LEDOFF_CPU_Pin | PICS_ERROR_CPU_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : DIP_SW7_Pin DIP_SW8_Pin DIP_SW9_Pin STOP_CPU_Pin
                            DIP_SW5_Pin */
-  GPIO_InitStruct.Pin = DIP_SW7_Pin|DIP_SW8_Pin|DIP_SW9_Pin|STOP_CPU_Pin
-                          |DIP_SW5_Pin;
+  GPIO_InitStruct.Pin = DIP_SW7_Pin | DIP_SW8_Pin | DIP_SW9_Pin | STOP_CPU_Pin | DIP_SW5_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
@@ -718,28 +703,26 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : ST_HUB_RESET_Pin ST_HUB_BOOT_Pin FRONT_POWER_LED_Pin FRONT_STOP_LED_Pin
                            FRONT_READY_LED_Pin FRONT_ACTIVE_LED_Pin FRONT_ERROR1_LED_Pin FRONT_ERROR2_LED_Pin
                            FRONT_ERROR3_LED_Pin MARK0_Pin */
-  GPIO_InitStruct.Pin = ST_HUB_RESET_Pin|ST_HUB_BOOT_Pin|FRONT_POWER_LED_Pin|FRONT_STOP_LED_Pin
-                          |FRONT_READY_LED_Pin|FRONT_ACTIVE_LED_Pin|FRONT_ERROR1_LED_Pin|FRONT_ERROR2_LED_Pin
-                          |FRONT_ERROR3_LED_Pin|MARK0_Pin;
+  GPIO_InitStruct.Pin = ST_HUB_RESET_Pin | ST_HUB_BOOT_Pin | FRONT_POWER_LED_Pin | FRONT_STOP_LED_Pin | FRONT_READY_LED_Pin | FRONT_ACTIVE_LED_Pin | FRONT_ERROR1_LED_Pin | FRONT_ERROR2_LED_Pin | FRONT_ERROR3_LED_Pin | MARK0_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : DIP_SW10_Pin DIP_SW11_Pin DIP_SW12_Pin */
-  GPIO_InitStruct.Pin = DIP_SW10_Pin|DIP_SW11_Pin|DIP_SW12_Pin;
+  GPIO_InitStruct.Pin = DIP_SW10_Pin | DIP_SW11_Pin | DIP_SW12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : MARK1_SYNC_Pin MARK2_HALT_Pin */
-  GPIO_InitStruct.Pin = MARK1_SYNC_Pin|MARK2_HALT_Pin;
+  GPIO_InitStruct.Pin = MARK1_SYNC_Pin | MARK2_HALT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PPOFF_CPU_Pin PDUMP_CPU_Pin */
-  GPIO_InitStruct.Pin = PPOFF_CPU_Pin|PDUMP_CPU_Pin;
+  GPIO_InitStruct.Pin = PPOFF_CPU_Pin | PDUMP_CPU_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -761,10 +744,10 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN Header_StartTaskUART1 */
 /**
-  * @brief  Function implementing the TaskUART1 thread.
-  * @param  argument: Not used
-  * @retval None
-  */
+ * @brief  Function implementing the TaskUART1 thread.
+ * @param  argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_StartTaskUART1 */
 void StartTaskUART1(void *argument)
 {
@@ -772,188 +755,188 @@ void StartTaskUART1(void *argument)
   (void)argument;
   uint32_t flag;
   /* Infinite loop */
-	for(;;)
-	{
-		flag = osThreadFlagsWait(EVENT_DATA_READY | EVENT_ERROR, osFlagsWaitAny, osWaitForever);
-		if(flag == EVENT_DATA_READY)
-		{
-			vPortEnterCritical();
-			uint8_t sizeToCopy = au8RxBufAcs.uSize;
-			memcpy(au8TxBufCmm.uaiDataArray,(uint8_t *)au8RxBufAcs.uaiDataArray,sizeToCopy);
-			vPortExitCritical();
+  for (;;)
+  {
+    flag = osThreadFlagsWait(EVENT_DATA_READY | EVENT_ERROR, osFlagsWaitAny, osWaitForever);
+    if (flag == EVENT_DATA_READY)
+    {
+      vPortEnterCritical();
+      uint8_t sizeToCopy = au8RxBufAcs.uSize;
+      memcpy(au8TxBufCmm.uaiDataArray, (uint8_t *)au8RxBufAcs.uaiDataArray, sizeToCopy);
+      vPortExitCritical();
 
-			if (osSemaphoreAcquire(Uart1TxSemHandle, osWaitForever) == osOK)
-			{
-				if(SendData(&huart1, au8TxBufCmm.uaiDataArray, sizeToCopy) == HAL_OK)
-				{
-					HAL_UART_Receive_IT(&huart6, (uint8_t *)&au8RxBufAcs.uaiDataArray[0], 1);
-					HAL_UART_Receive_IT(&huart1, (uint8_t *)&au8RxBufCmm.uaiDataArray[0], 1);
-				}
-				else
-				{
-					ResetCommunication();
-					EmptyUartBuffers();
-				}
-			}
-		}
-		else if(flag == EVENT_ERROR)
-		{
-			ResetCommunication();
-			EmptyUartBuffers();
-		}
-
-	}
+      if (osSemaphoreAcquire(Uart1TxSemHandle, osWaitForever) == osOK)
+      {
+        if (SendData(&huart1, au8TxBufCmm.uaiDataArray, sizeToCopy) == HAL_OK)
+        {
+          HAL_UART_Receive_IT(&huart6, (uint8_t *)&au8RxBufAcs.uaiDataArray[0], 1);
+          HAL_UART_Receive_IT(&huart1, (uint8_t *)&au8RxBufCmm.uaiDataArray[0], 1);
+        }
+        else
+        {
+          ResetCommunication();
+          EmptyUartBuffers();
+        }
+      }
+    }
+    else if (flag == EVENT_ERROR)
+    {
+      ResetCommunication();
+      EmptyUartBuffers();
+    }
+  }
   /* USER CODE END 5 */
 }
 
 /* USER CODE BEGIN Header_StartTaskUART6 */
 /**
-* @brief Function implementing the TaskUART6 thread.
-* @param argument: Not used
-* @retval None
-*/
+ * @brief Function implementing the TaskUART6 thread.
+ * @param argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_StartTaskUART6 */
 void StartTaskUART6(void *argument)
 {
   /* USER CODE BEGIN StartTaskUART6 */
-	(void)argument;
-	uint32_t flag;
+  (void)argument;
+  uint32_t flag;
   /* Infinite loop */
-	for(;;)
-	{
-		flag = osThreadFlagsWait(EVENT_DATA_READY | EVENT_ERROR, osFlagsWaitAny, osWaitForever);
+  for (;;)
+  {
+    flag = osThreadFlagsWait(EVENT_DATA_READY | EVENT_ERROR, osFlagsWaitAny, osWaitForever);
 
-		if(flag == EVENT_ERROR)
-		{
-			ResetCommunication();
-			EmptyUartBuffers();
-		}
+    if (flag == EVENT_ERROR)
+    {
+      ResetCommunication();
+      EmptyUartBuffers();
+    }
 
-		else if(flag == EVENT_DATA_READY)
-		{
-			HAL_TIM_Base_Stop_IT(&htim10);
+    else if (flag == EVENT_DATA_READY)
+    {
+      HAL_TIM_Base_Stop_IT(&htim10);
 
-			vPortEnterCritical();
-			uint8_t sizeToCopy = au8RxBufCmm.uSize;
-			memcpy(au8TxBufAcs.uaiDataArray,(uint8_t *)au8RxBufCmm.uaiDataArray,sizeToCopy);
-			vPortExitCritical();
+      vPortEnterCritical();
+      uint8_t sizeToCopy = au8RxBufCmm.uSize;
+      memcpy(au8TxBufAcs.uaiDataArray, (uint8_t *)au8RxBufCmm.uaiDataArray, sizeToCopy);
+      vPortExitCritical();
 
-			if (osSemaphoreAcquire(Uart6TxSemHandle, osWaitForever) == osOK)
-			{
-				if(SendData(&huart6, au8TxBufAcs.uaiDataArray, sizeToCopy) == HAL_OK)
-				{
-					HAL_UART_Receive_IT(&huart6, (uint8_t *)&au8RxBufAcs.uaiDataArray[0], 1);
-					HAL_UART_Receive_IT(&huart1, (uint8_t *)&au8RxBufCmm.uaiDataArray[0], 1);
-				}
-				else
-				{
-					ResetCommunication();
-					EmptyUartBuffers();
-				}
-			}
-		}
-	}
+      if (osSemaphoreAcquire(Uart6TxSemHandle, osWaitForever) == osOK)
+      {
+        if (SendData(&huart6, au8TxBufAcs.uaiDataArray, sizeToCopy) == HAL_OK)
+        {
+          HAL_UART_Receive_IT(&huart6, (uint8_t *)&au8RxBufAcs.uaiDataArray[0], 1);
+          HAL_UART_Receive_IT(&huart1, (uint8_t *)&au8RxBufCmm.uaiDataArray[0], 1);
+        }
+        else
+        {
+          ResetCommunication();
+          EmptyUartBuffers();
+        }
+      }
+    }
+  }
   /* USER CODE END StartTaskUART6 */
 }
 
 /* USER CODE BEGIN Header_StartTaskReadDs */
 /**
-* @brief Function implementing the TaskReadDs thread.
-* @param argument: Not used
-* @retval None
-*/
+ * @brief Function implementing the TaskReadDs thread.
+ * @param argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_StartTaskReadDs */
 void StartTaskReadDs(void *argument)
 {
   /* USER CODE BEGIN StartTaskReadDs */
   (void)argument;
   /* Infinite loop */
-  for(;;)
+  for (;;)
   {
-	  DipSwitchStatus();
-	  Tp20CheckForError();
-	  osDelay(1);
+    DipSwitchStatus();
+    Tp20CheckForError();
+    osDelay(1);
   }
   /* USER CODE END StartTaskReadDs */
 }
 
 /* USER CODE BEGIN Header_StartTaskSYNC */
 /**
-* @brief Function implementing the TaskSYNC thread.
-* @param argument: Not used
-* @retval None
-*/
+ * @brief Function implementing the TaskSYNC thread.
+ * @param argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_StartTaskSYNC */
 void StartTaskSYNC(void *argument)
 {
   /* USER CODE BEGIN StartTaskSYNC */
-	(void)argument;
+  (void)argument;
   /* Infinite loop */
-	for(;;)
-	{
-		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		/** @brief Process SYNC_CPU interrupt - initiates measurement synchronization */\n\t\tif (osMutexAcquire(SignalMutexHandle, osWaitForever) == osOK)
-		{
-			// Interrupt SYNK_CPU
-			if (HAL_GPIO_ReadPin(MARK1_SYNC_GPIO_Port, MARK1_SYNC_Pin) == IN_SNYC_ON)//falling
-			{
-				if ((!u8IsFirstSnycArrived) && (gpPdumpStatus == IN_PDAMP_OFF))
-				{
-					u8IsFirstSnycArrived = TRUE;
-					u8IsInTp20Measurement = 1;
-					TriggerToAcsControl(GPIO_PIN_SET);
-					u161MilliSecondCounter = 0;
-				}
-			}
-			else if (u8IsFirstHaltArrived)	//rising
-			{
-				ResetSynkAndHalt();
-			}
-			osMutexRelease(SignalMutexHandle);
-		}
-	}
+  for (;;)
+  {
+    ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+    /** @brief Process SYNC_CPU interrupt - initiates measurement synchronization */
+    if (osMutexAcquire(SignalMutexHandle, osWaitForever) == osOK)
+    {
+      // Interrupt SYNK_CPU
+      if (HAL_GPIO_ReadPin(MARK1_SYNC_GPIO_Port, MARK1_SYNC_Pin) == IN_SNYC_ON) // falling
+      {
+        if ((!u8IsFirstSnycArrived) && (gpPdumpStatus == IN_PDAMP_OFF))
+        {
+          u8IsFirstSnycArrived = TRUE;
+          u8IsInTp20Measurement = 1;
+          TriggerToAcsControl(GPIO_PIN_SET);
+          u161MilliSecondCounter = 0;
+        }
+      }
+      else if (u8IsFirstHaltArrived) // rising
+      {
+        ResetSynkAndHalt();
+      }
+      osMutexRelease(SignalMutexHandle);
+    }
+  }
   /* USER CODE END StartTaskSYNC */
 }
 
 /* USER CODE BEGIN Header_StartTaskHALT */
 /**
-* @brief Function implementing the TaskHALT thread.
-* @param argument: Not used
-* @retval None
-*/
+ * @brief Function implementing the TaskHALT thread.
+ * @param argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_StartTaskHALT */
 void StartTaskHALT(void *argument)
 {
   /* USER CODE BEGIN StartTaskHALT */
-	(void)argument;
+  (void)argument;
   /* Infinite loop */
-	for(;;)
-	{
-		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		/** @brief Process HALT_CPU interrupt - triggers measurement shutdown sequence */
-		/* FIX: Mutex MUST be released ONLY if successfully acquired
-		   Moving release inside if-block prevents dangling release if acquire fails */
-		if (osMutexAcquire(SignalMutexHandle, osWaitForever) == osOK)
-		{
-			if ((!u8IsFirstHaltArrived) && (u8IsInTp20Measurement) && (u161MilliSecondCounter >= SNYK_WAIT_TIME) && (u161MilliSecondCounter <= HALT_TIME_OFF))
-			{
-				u8IsFirstHaltArrived = TRUE;
-				TriggerToAcsControl(GPIO_PIN_SET);
-			}
-			osMutexRelease(SignalMutexHandle);
-		}
-	}
+  for (;;)
+  {
+    ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+    /** @brief Process HALT_CPU interrupt - triggers measurement shutdown sequence */
+    /* FIX: Mutex MUST be released ONLY if successfully acquired
+       Moving release inside if-block prevents dangling release if acquire fails */
+    if (osMutexAcquire(SignalMutexHandle, osWaitForever) == osOK)
+    {
+      if ((!u8IsFirstHaltArrived) && (u8IsInTp20Measurement) && (u161MilliSecondCounter >= SNYK_WAIT_TIME) && (u161MilliSecondCounter <= HALT_TIME_OFF))
+      {
+        u8IsFirstHaltArrived = TRUE;
+        TriggerToAcsControl(GPIO_PIN_SET);
+      }
+      osMutexRelease(SignalMutexHandle);
+    }
+  }
   /* USER CODE END StartTaskHALT */
 }
 
 /**
-  * @brief  Period elapsed callback in non blocking mode
-  * @note   This function is called  when TIM2 interrupt took place, inside
-  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
-  * a global variable "uwTick" used as application time base.
-  * @param  htim : TIM handle
-  * @retval None
-  */
+ * @brief  Period elapsed callback in non blocking mode
+ * @note   This function is called  when TIM2 interrupt took place, inside
+ * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+ * a global variable "uwTick" used as application time base.
+ * @param  htim : TIM handle
+ * @retval None
+ */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* USER CODE BEGIN Callback 0 */
@@ -969,9 +952,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 }
 
 /**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
@@ -984,12 +967,12 @@ void Error_Handler(void)
 }
 #ifdef USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */

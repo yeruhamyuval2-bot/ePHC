@@ -43,5 +43,15 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true
-    }
+    },
+    "files.associations": {
+        "cmsis_os.h": "c",
+        "main.h": "c",
+        "communication.h": "c",
+        "stm32f4xx_hal.h": "c",
+        "stm32f4xx.h": "c"
+    },
+    "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+        "clang-diagnostic-error"
+    ]
 }

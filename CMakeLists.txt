@@ -44,12 +44,25 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user sources here
+    Core/Src/main.c
+    Core/Src/stm32f4xx_it.c
+    Core/Src/communication.c
+    Core/Src/EEprom.c
+    Core/Src/Globals.c
+    Core/Src/Utilies.c
+    Core/Src/freertos.c
+    Core/Src/stm32f4xx_hal_msp.c
+    Core/Src/stm32f4xx_hal_timebase_tim.c
+    Core/Src/syscalls.c
+    Core/Src/sysmem.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined include paths
+    Core/Inc
+    Drivers/CMSIS/Include
+    Drivers/CMSIS/Device
+    Drivers/STM32F4xx_HAL_Driver/Inc
 )
 
 # Add project symbols (macros)

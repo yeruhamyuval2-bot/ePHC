@@ -17,7 +17,8 @@
                 "STM32F401xC",
                 "USE_HAL_DRIVER",
                 "DEBUG",
-                "USE_FREERTOS"
+                "USE_FREERTOS",
+                "__ARM_FEATURE_DSP=1"
             ],
             "cStandard": "c11",
             "cppStandard": "c++17",
