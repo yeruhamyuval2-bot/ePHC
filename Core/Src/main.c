@@ -909,6 +909,8 @@ void StartTaskHALT(void *argument)
 {
   /* USER CODE BEGIN StartTaskHALT */
   (void)argument;
+  int test = 0;
+  test++;
   /* Infinite loop */
   for (;;)
   {
