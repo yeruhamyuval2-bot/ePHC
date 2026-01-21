@@ -149,6 +149,7 @@ jobs:
       - name: Generate API Documentation
         run: |
           echo "=== Generating Doxygen Documentation ==="
+          mkdir -p docs/api
           if [ ! -f Doxyfile ]; then
             {
               echo "PROJECT_NAME = ePHC"
