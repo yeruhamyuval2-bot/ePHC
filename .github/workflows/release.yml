@@ -1,0 +1,82 @@
+name: Release & Deploy
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Trigger on version tags like v1.0.0
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # 2. Install dependencies
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi cmake ninja-build
+      
+      # 3. Build Release version
+      - name: Build Release
+        run: |
+          cmake -DCMAKE_BUILD_TYPE=Release -B build/Release -G Ninja
+          cmake --build build/Release --verbose
+      
+      # 4. Generate all firmware formats
+      - name: Generate firmware formats
+        run: |
+          mkdir -p firmware
+          arm-none-eabi-objcopy -O binary build/Release/ePHC.elf firmware/ePHC.bin
+          arm-none-eabi-objcopy -O ihex build/Release/ePHC.elf firmware/ePHC.hex
+          cp build/Release/ePHC.elf firmware/ePHC.elf
+          ls -lh firmware/
+      
+      # 5. Create release notes
+      - name: Generate release notes
+        run: |
+          {
+            echo "# ePHC Firmware Release"
+            echo ""
+            echo "## Files"
+            echo "- **ePHC.elf** - Debuggable ELF executable for ST-Link programming"
+            echo "- **ePHC.bin** - Binary firmware (raw binary format)"
+            echo "- **ePHC.hex** - Intel HEX format (compatible with most programmers)"
+            echo ""
+            echo "## Build Information"
+            echo "- **Tag**: ${{ github.ref }}"
+            echo "- **Commit**: ${{ github.sha }}"
+            echo "- **Date**: $(date)"
+            echo ""
+            echo "## Flashing Instructions"
+            echo ""
+            echo "### Using STM32CubeProgrammer"
+            echo "\`\`\`"
+            echo "STM32_Programmer_CLI -c port=SWD -d firmware/ePHC.bin 0x08000000"
+            echo "\`\`\`"
+            echo ""
+            echo "### Using OpenOCD"
+            echo "\`\`\`"
+            echo "openocd -f interface/stlink.cfg -f target/stm32f4x.cfg -c 'program firmware/ePHC.elf verify reset exit'"
+            echo "\`\`\`"
+          } > RELEASE_NOTES.md
+          cat RELEASE_NOTES.md
+      
+      # 6. Create GitHub Release
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            firmware/ePHC.elf
+            firmware/ePHC.bin
+            firmware/ePHC.hex
+            RELEASE_NOTES.md
+          body_path: RELEASE_NOTES.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

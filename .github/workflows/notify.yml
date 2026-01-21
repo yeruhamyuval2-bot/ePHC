@@ -1,0 +1,39 @@
+name: Build Notification
+
+on:
+  workflow_run:
+    workflows: ["STM32 Build & Validation"]
+    types: [completed]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check build status
+        run: |
+          if [ "${{ github.event.workflow_run.conclusion }}" == "failure" ]; then
+            echo "❌ Build FAILED!"
+            echo "Repository: ${{ github.repository }}"
+            echo "Branch: ${{ github.event.workflow_run.head_branch }}"
+            echo "Commit: ${{ github.event.workflow_run.head_commit }}"
+            echo "Author: ${{ github.event.workflow_run.actor }}"
+            echo ""
+            echo "Check details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}"
+            exit 1
+          else
+            echo "✅ Build SUCCEEDED!"
+          fi
+      
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `❌ Build Failed: ${context.payload.workflow_run.head_branch}`,
+              body: `Build failed on **${context.payload.workflow_run.head_branch}** branch\n\n**Commit**: ${context.payload.workflow_run.head_commit}\n**Author**: @${context.payload.workflow_run.actor}\n\n[View full logs](${context.server_url}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.payload.workflow_run.id})`,
+              labels: ['bug', 'build-failure']
+            })

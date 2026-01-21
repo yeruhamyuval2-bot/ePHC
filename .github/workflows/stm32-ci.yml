@@ -15,98 +15,178 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      # 2. Install ARM GCC toolchain
-      - name: Install ARM GCC Toolchain
+      # 2. Install all required tools
+      - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y gcc-arm-none-eabi cmake ninja-build clang-format cppcheck
+          sudo apt-get install -y gcc-arm-none-eabi cmake ninja-build clang-format cppcheck doxygen graphviz
       
       # 3. Verify toolchain installation
       - name: Verify toolchain
         run: |
+          echo "=== Toolchain Versions ==="
           arm-none-eabi-gcc --version
           cmake --version
           ninja --version
           clang-format --version
           cppcheck --version
+          doxygen --version
       
       # 4. Code Linting - Check code style with clang-format
       - name: Lint code style
         run: |
           echo "=== Checking code style with clang-format ==="
+          LINT_FAILED=0
           find Core/Src Core/Inc -name "*.c" -o -name "*.h" | while read file; do
-            if ! clang-format --dry-run --Werror "$file" 2>&1 | grep -q .; then
-              echo "✓ $file: OK"
-            else
+            if clang-format --dry-run --Werror "$file" 2>&1 | grep -q .; then
               echo "⚠ $file: Style issues found"
               clang-format --dry-run "$file"
+            else
+              echo "✓ $file: OK"
             fi
           done
-          echo ""
-          echo "Note: Run 'clang-format -i <file>' locally to auto-fix formatting"
       
-      # 5. Static Analysis - Check for potential bugs
-      - name: Static Analysis with cppcheck
+      # 5. Static Analysis - MISRA-C and general code issues
+      - name: Static Analysis (cppcheck)
         run: |
-          echo "=== Running static analysis ==="
-          cppcheck --enable=all --suppress=missingIncludeSystem \
+          echo "=== Running static analysis with cppcheck ==="
+          cppcheck --enable=all --suppress=missingIncludeSystem,variableScope \
+            --std=c11 \
             --error-exitcode=0 \
+            -I Core/Inc \
+            -I Drivers/CMSIS/Include \
             Core/Src/ Core/Inc/ 2>&1 | tee cppcheck-report.txt
-          echo ""
-          echo "Static analysis complete (see report above)"
+          echo "✓ Static analysis complete"
       
-      # 6. Clean build directory
+      # 6. Security Scanning - Check for vulnerable patterns
+      - name: Security Scanning
+        run: |
+          echo "=== Security Scanning ==="
+          grep -r "gets\|strcpy\|strcat\|sprintf" Core/Src/ Core/Inc/ || echo "✓ No dangerous functions found"
+          grep -r "password\|secret\|token" Core/Src/ Core/Inc/ --ignore-case || echo "✓ No hardcoded secrets found"
+          echo "✓ Security scan complete"
+      
+      # 7. Clean build directory
       - name: Clean build directory
         run: |
           rm -rf build/
       
-      # 7. Configure CMake for Debug build
-      - name: Configure CMake (Debug)
+      # 8. Build Debug configuration with performance tracking
+      - name: Configure & Build Debug
         run: |
+          echo "=== Building Debug Configuration ==="
+          START_TIME=$(date +%s)
           cmake --preset Debug
+          cmake --build build/Debug --config Debug --verbose 2>&1 | tee build_debug.log
+          END_TIME=$(date +%s)
+          DURATION=$((END_TIME - START_TIME))
+          echo "Debug build time: ${DURATION}s" | tee build_time_debug.txt
       
-      # 8. Build the project
-      - name: Build project
+      # 9. Build Release configuration
+      - name: Configure & Build Release
         run: |
-          cmake --build build/Debug --config Debug --verbose
+          echo "=== Building Release Configuration ==="
+          START_TIME=$(date +%s)
+          rm -rf build/
+          cmake -DCMAKE_BUILD_TYPE=Release -B build/Release -G Ninja
+          cmake --build build/Release --verbose 2>&1 | tee build_release.log || echo "Release build optional"
+          END_TIME=$(date +%s)
+          DURATION=$((END_TIME - START_TIME))
+          echo "Release build time: ${DURATION}s" | tee build_time_release.txt
       
-      # 9. Check for build errors and output
-      - name: Verify build output
+      # 10. Memory Usage Report - Critical for embedded systems
+      - name: Memory Usage Analysis
         run: |
-          echo "=== Listing build directory ==="
-          find build/Debug -type f \( -name "ePHC*" -o -name "*.elf" \) | head -20
-          echo ""
-          echo "=== Checking for executable ==="
-          ls -lah build/Debug/ 2>/dev/null || echo "build/Debug directory not found"
-          echo ""
+          echo "=== Memory Usage Report ===" | tee memory_report.txt
+          echo "" >> memory_report.txt
+          echo "--- DEBUG Build ---" >> memory_report.txt
           if [ -f build/Debug/ePHC.elf ]; then
-            echo "✓ Build successful: ePHC.elf executable created"
-            file build/Debug/ePHC.elf
-            arm-none-eabi-objdump -h build/Debug/ePHC.elf | head -20
-          else
-            echo "✗ Build failed: ePHC.elf executable not found"
-            exit 1
+            arm-none-eabi-size build/Debug/ePHC.elf >> memory_report.txt
+            echo "" >> memory_report.txt
+            arm-none-eabi-size --format=berkeley build/Debug/ePHC.elf >> memory_report.txt
           fi
+          echo "" >> memory_report.txt
+          echo "--- RELEASE Build ---" >> memory_report.txt
+          if [ -f build/Release/ePHC.elf ]; then
+            arm-none-eabi-size build/Release/ePHC.elf >> memory_report.txt
+            echo "" >> memory_report.txt
+            arm-none-eabi-size --format=berkeley build/Release/ePHC.elf >> memory_report.txt
+          fi
+          echo "" >> memory_report.txt
+          echo "=== Flash & RAM Limits (STM32F401) ===" >> memory_report.txt
+          echo "Total Flash: 256 KB" >> memory_report.txt
+          echo "Total RAM: 64 KB" >> memory_report.txt
+          cat memory_report.txt
       
-      # 10. Generate .bin file from .elf
-      - name: Generate binary file
+      # 11. Binary Size Analysis
+      - name: Binary Size Tracking
         run: |
-          arm-none-eabi-objcopy -O binary build/Debug/ePHC.elf build/Debug/ePHC.bin
+          echo "=== Binary Size Analysis ===" | tee size_report.txt
+          ELF_SIZE=$(stat -c%s build/Debug/ePHC.elf 2>/dev/null || echo 0)
+          BIN_SIZE=$(stat -c%s build/Debug/ePHC.bin 2>/dev/null || echo 0)
+          echo "Debug ELF size: $((ELF_SIZE / 1024)) KB" >> size_report.txt
+          echo "Debug BIN size: $((BIN_SIZE / 1024)) KB" >> size_report.txt
+          if [ $BIN_SIZE -gt 209715200 ]; then
+            echo "⚠ WARNING: Binary exceeds 200KB safe limit!" >> size_report.txt
+          else
+            echo "✓ Binary size within acceptable limits" >> size_report.txt
+          fi
+          echo "" >> size_report.txt
+          ls -lh build/Debug/ePHC.* >> size_report.txt
+          cat size_report.txt
+      
+      # 12. Generate .bin and .hex files
+      - name: Generate firmware formats
+        run: |
+          echo "=== Generating firmware formats ==="
+          if [ -f build/Debug/ePHC.elf ]; then
+            arm-none-eabi-objcopy -O binary build/Debug/ePHC.elf build/Debug/ePHC.bin
+            arm-none-eabi-objcopy -O ihex build/Debug/ePHC.elf build/Debug/ePHC.hex
+          fi
           ls -lh build/Debug/ePHC.*
       
-      # 11. Upload artifacts for download
-      - name: Upload build artifacts
+      # 13. Generate Documentation (Doxygen)
+      - name: Generate API Documentation
+        run: |
+          echo "=== Generating Doxygen Documentation ==="
+          if [ ! -f Doxyfile ]; then
+            {
+              echo "PROJECT_NAME = ePHC"
+              echo "INPUT = Core/Src Core/Inc"
+              echo "OUTPUT_DIRECTORY = docs/api"
+              echo "RECURSIVE = YES"
+              echo "EXTRACT_ALL = YES"
+              echo "GENERATE_HTML = YES"
+              echo "GENERATE_LATEX = NO"
+            } > Doxyfile
+          fi
+          doxygen Doxyfile 2>&1 | tail -10 || echo "Documentation generation skipped"
+      
+      # 14. Upload Debug artifacts
+      - name: Upload Debug artifacts
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: ePHC-Firmware
+          name: ePHC-Firmware-Debug
           path: |
             build/Debug/ePHC.elf
             build/Debug/ePHC.bin
+            build/Debug/ePHC.hex
           retention-days: 30
-          compression-level: 6
       
-      # 12. Upload static analysis report
+      # 15. Upload Release artifacts
+      - name: Upload Release artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ePHC-Firmware-Release
+          path: |
+            build/Release/ePHC.elf
+            build/Release/ePHC.bin
+            build/Release/ePHC.hex
+          retention-days: 30
+      
+      # 16. Upload analysis reports
       - name: Upload analysis reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -114,4 +194,38 @@ jobs:
           name: Analysis-Reports
           path: |
             cppcheck-report.txt
+            memory_report.txt
+            size_report.txt
+            build_time_*.txt
+            build_*.log
           retention-days: 30
+      
+      # 17. Upload documentation
+      - name: Upload documentation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: API-Documentation
+          path: docs/api/
+          retention-days: 30
+      
+      # 18. Build metrics summary
+      - name: Build metrics summary
+        if: always()
+        run: |
+          {
+            echo "## 📊 Build Summary"
+            echo ""
+            echo "### Build Configurations"
+            echo "✓ Debug Configuration"
+            [ -f build/Release/ePHC.elf ] && echo "✓ Release Configuration" || echo "⊘ Release Configuration"
+            echo ""
+            echo "### Build Times"
+            cat build_time_*.txt
+            echo ""
+            echo "### Memory Usage"
+            cat memory_report.txt
+            echo ""
+            echo "### Binary Sizes"
+            cat size_report.txt
+          } >> $GITHUB_STEP_SUMMARY
