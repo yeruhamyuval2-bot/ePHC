@@ -28,17 +28,22 @@ jobs:
           cmake --version
           ninja --version
       
-      # 4. Configure CMake for Debug build
+      # 4. Clean build directory
+      - name: Clean build directory
+        run: |
+          rm -rf build/
+      
+      # 5. Configure CMake for Debug build
       - name: Configure CMake (Debug)
         run: |
           cmake --preset Debug
       
-      # 5. Build the project
+      # 6. Build the project
       - name: Build project
         run: |
           cmake --build build/Debug --config Debug
       
-      # 6. Check for build output
+      # 7. Check for build output
       - name: Verify build output
         run: |
           if [ -f build/Debug/ePHC ]; then
