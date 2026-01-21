@@ -47,17 +47,16 @@ jobs:
       - name: Verify build output
         run: |
           echo "=== Listing build directory ==="
-          find build/Debug -type f -name "ePHC*" -o -name "*.elf" -o -name "*.o" | head -20
+          find build/Debug -type f \( -name "ePHC*" -o -name "*.elf" \) | head -20
           echo ""
           echo "=== Checking for executable ==="
           ls -lah build/Debug/ 2>/dev/null || echo "build/Debug directory not found"
           echo ""
-          if [ -f build/Debug/ePHC ]; then
-            echo "✓ Build successful: ePHC executable created"
-            file build/Debug/ePHC
+          if [ -f build/Debug/ePHC.elf ]; then
+            echo "✓ Build successful: ePHC.elf executable created"
+            file build/Debug/ePHC.elf
+            arm-none-eabi-objdump -h build/Debug/ePHC.elf | head -20
           else
-            echo "✗ Build failed: ePHC executable not found"
-            echo "Checking for compilation log..."
-            cat build/Debug/CMakeFiles/ePHC.dir/link.txt 2>/dev/null || echo "No link.txt found"
+            echo "✗ Build failed: ePHC.elf executable not found"
             exit 1
           fi
