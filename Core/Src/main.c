@@ -909,8 +909,9 @@ void StartTaskHALT(void *argument)
 {
   /* USER CODE BEGIN StartTaskHALT */
   (void)argument;
-  /* Infinite loop */
-  for (;;)
+  dsfgsdfg
+      /* Infinite loop */
+      for (;;)
   {
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
     /** @brief Process HALT_CPU interrupt - triggers measurement shutdown sequence */
