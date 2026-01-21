@@ -1,0 +1,50 @@
+name: STM32 Build & Validation
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # 2. Install ARM GCC toolchain
+      - name: Install ARM GCC Toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi cmake ninja-build
+      
+      # 3. Verify toolchain installation
+      - name: Verify toolchain
+        run: |
+          arm-none-eabi-gcc --version
+          cmake --version
+          ninja --version
+      
+      # 4. Configure CMake for Debug build
+      - name: Configure CMake (Debug)
+        run: |
+          cmake --preset Debug
+      
+      # 5. Build the project
+      - name: Build project
+        run: |
+          cmake --build build/Debug --config Debug
+      
+      # 6. Check for build output
+      - name: Verify build output
+        run: |
+          if [ -f build/Debug/ePHC ]; then
+            echo "✓ Build successful: ePHC executable created"
+            file build/Debug/ePHC
+          else
+            echo "✗ Build failed: ePHC executable not found"
+            exit 1
+          fi
