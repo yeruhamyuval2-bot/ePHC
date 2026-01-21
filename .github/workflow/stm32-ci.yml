@@ -1,0 +1,27 @@
+# Trigger the workflow on every push to the main branch
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the code from your repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Run the build inside a Docker container with ARM tools
+      - name: Build STM32 Project
+        uses: xpack-dev-tools/arm-none-eabi-gcc-xpack@v12.3.1-1.1
+        with:
+          # This command depends on how your VS Code project is set up.
+          # If you use the STM32 VS Code Extension, it likely uses CMake.
+          args: |
+            mkdir build
+            cd build
+            cmake ..
+            make
