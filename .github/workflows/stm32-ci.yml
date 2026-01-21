@@ -118,7 +118,17 @@ jobs:
           echo "Total RAM: 64 KB" >> memory_report.txt
           cat memory_report.txt
       
-      # 11. Binary Size Analysis
+      # 11. Generate .bin and .hex files FIRST (before size analysis)
+      - name: Generate firmware formats
+        run: |
+          echo "=== Generating firmware formats ==="
+          if [ -f build/Debug/ePHC.elf ]; then
+            arm-none-eabi-objcopy -O binary build/Debug/ePHC.elf build/Debug/ePHC.bin
+            arm-none-eabi-objcopy -O ihex build/Debug/ePHC.elf build/Debug/ePHC.hex
+          fi
+          ls -lh build/Debug/ePHC.*
+      
+      # 12. Binary Size Analysis (after .bin is generated)
       - name: Binary Size Tracking
         run: |
           echo "=== Binary Size Analysis ===" | tee size_report.txt
@@ -134,16 +144,6 @@ jobs:
           echo "" >> size_report.txt
           ls -lh build/Debug/ePHC.* >> size_report.txt
           cat size_report.txt
-      
-      # 12. Generate .bin and .hex files
-      - name: Generate firmware formats
-        run: |
-          echo "=== Generating firmware formats ==="
-          if [ -f build/Debug/ePHC.elf ]; then
-            arm-none-eabi-objcopy -O binary build/Debug/ePHC.elf build/Debug/ePHC.bin
-            arm-none-eabi-objcopy -O ihex build/Debug/ePHC.elf build/Debug/ePHC.hex
-          fi
-          ls -lh build/Debug/ePHC.*
       
       # 13. Generate Documentation (Doxygen)
       - name: Generate API Documentation
