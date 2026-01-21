@@ -910,6 +910,8 @@ void StartTaskHALT(void *argument)
   /* USER CODE BEGIN StartTaskHALT */
   (void)argument;
   /* Infinite loop */
+  int test = 0;
+  test++;
   for (;;)
   {
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
