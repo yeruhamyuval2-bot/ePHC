@@ -87,7 +87,7 @@ jobs:
         run: |
           echo "=== Building Release Configuration ==="
           START_TIME=$(date +%s)
-          rm -rf build/
+          rm -rf build/Release
           cmake -DCMAKE_BUILD_TYPE=Release -B build/Release -G Ninja
           cmake --build build/Release --verbose 2>&1 | tee build_release.log || echo "Release build optional"
           END_TIME=$(date +%s)
