@@ -41,15 +41,23 @@ jobs:
       # 6. Build the project
       - name: Build project
         run: |
-          cmake --build build/Debug --config Debug
+          cmake --build build/Debug --config Debug --verbose
       
-      # 7. Check for build output
+      # 7. Check for build errors and output
       - name: Verify build output
         run: |
+          echo "=== Listing build directory ==="
+          find build/Debug -type f -name "ePHC*" -o -name "*.elf" -o -name "*.o" | head -20
+          echo ""
+          echo "=== Checking for executable ==="
+          ls -lah build/Debug/ 2>/dev/null || echo "build/Debug directory not found"
+          echo ""
           if [ -f build/Debug/ePHC ]; then
             echo "✓ Build successful: ePHC executable created"
             file build/Debug/ePHC
           else
             echo "✗ Build failed: ePHC executable not found"
+            echo "Checking for compilation log..."
+            cat build/Debug/CMakeFiles/ePHC.dir/link.txt 2>/dev/null || echo "No link.txt found"
             exit 1
           fi
