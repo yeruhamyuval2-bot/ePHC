@@ -2,9 +2,9 @@ name: STM32 Build & Validation
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main", "develop", "v1" ]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: [ "main", "develop", "v1" ]
 
 jobs:
   build:
