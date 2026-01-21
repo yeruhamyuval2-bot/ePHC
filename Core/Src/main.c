@@ -911,6 +911,10 @@ void StartTaskHALT(void *argument)
   (void)argument;
   int test = 0;
   test++;
+  if (test == 1)
+  {
+    test = 0;
+  }
   /* Infinite loop */
   for (;;)
   {
