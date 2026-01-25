@@ -99,7 +99,7 @@ const osThreadAttr_t TaskHALT_attributes = {
  * @brief Signal Mutex - Protects shared resources between HALT and SYNC tasks
  * @details Prevents race conditions when accessing u8IsFirstHaltArrived and u8IsInTp20Measurement
  */
-osMutexId_t SignalMutexHandle;
+extern osMutexId_t SignalMutexHandle;
 const osMutexAttr_t SignalMutex_attributes = {
     .name = "SignalMutex"};
 /* Definitions for Uart6TxSem */
@@ -165,7 +165,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  HAL_Delay(20000); // Wait for 20 seconds to allow Communication stabilization
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -778,6 +778,11 @@ void StartTaskUART1(void *argument)
           EmptyUartBuffers();
         }
       }
+      else
+      {
+        ResetCommunication();
+        EmptyUartBuffers();
+      }
     }
     else if (flag == EVENT_ERROR)
     {
@@ -873,10 +878,17 @@ void StartTaskSYNC(void *argument)
   /* Infinite loop */
   for (;;)
   {
-    ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+    uint32_t event_flags = ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
     /** @brief Process SYNC_CPU interrupt - initiates measurement synchronization */
     if (osMutexAcquire(SignalMutexHandle, osWaitForever) == osOK)
     {
+      /* FIX: Handle EVENT_ERROR signal from ISR timeout (line 215 in stm32f4xx_it.c)
+         This is the safe place to call ResetSynkAndHalt() with mutex protection */
+      if (event_flags & EVENT_ERROR)
+      {
+        ResetSynkAndHalt();
+      }
+
       // Interrupt SYNK_CPU
       if (HAL_GPIO_ReadPin(MARK1_SYNC_GPIO_Port, MARK1_SYNC_Pin) == IN_SNYC_ON) // falling
       {
